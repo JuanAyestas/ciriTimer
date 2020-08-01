@@ -3,6 +3,7 @@ const WARNING_THRESHOLD = 10;
 const ALERT_THRESHOLD = 5;
 const AUDIO_ELEMENT = document.createElement("audio");
 AUDIO_ELEMENT.setAttribute("src", "assets/Kakariko_is_Saved.mp3");
+AUDIO_ELEMENT.autoplay = false;
 
 const COLOR_CODES = {
     info: {
@@ -56,9 +57,10 @@ document.getElementById("app").innerHTML = `
 
 startTimer();
 
+AUDIO_ELEMENT.autoplay = true;
+
 function onTimesUp() {
     clearInterval(timerInterval);
-    AUDIO_ELEMENT.autoplay = true;
     AUDIO_ELEMENT.play();
 }
 
