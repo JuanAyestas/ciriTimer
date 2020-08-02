@@ -3,7 +3,8 @@ const WARNING_THRESHOLD = 10;
 const ALERT_THRESHOLD = 5;
 const AUDIO_ELEMENT = document.createElement("audio");
 AUDIO_ELEMENT.setAttribute("src", "assets/Kakariko_is_Saved.mp3");
-AUDIO_ELEMENT.autoplay = false;
+let autoPlay = AUDIO_ELEMENT.autoplay;
+autoPlay = false;
 
 const COLOR_CODES = {
     info: {
@@ -19,9 +20,9 @@ const COLOR_CODES = {
     },
 };
 
-const userTime = prompt(`En cuanto tiempo?
-Nota: Poner el tiempo en segundos (Horas x 3600 o Minutos x 60)
-Ejemplo: 7200 para 2 horas`);
+const userTime = prompt(`In how much time?
+Note: Add the time in seconds (hours x 3600 or minutes x 60)
+Example: 7200 for 2 hours`);
 
 const TIME_LIMIT = userTime;
 // const TIME_LIMIT = 1500;
@@ -57,7 +58,7 @@ document.getElementById("app").innerHTML = `
 
 startTimer();
 
-AUDIO_ELEMENT.autoplay = true;
+autoPlay = true;
 
 function onTimesUp() {
     clearInterval(timerInterval);
